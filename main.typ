@@ -5,20 +5,20 @@
     subtitle: "基于 Typst 的论文模板",
     header: "北京航空航天大学“冯如杯”竞赛主赛道参赛作品论文模板",
     author: "Fontlos",
-    abstract_CN: [
+    abstract-CN: [
         本 Typst 模板是北京航空航天大学大学第三十四届 "冯如杯" 竞赛主赛道论文模板, 相比 Word 排版更加强大, 相比 Latex 模板更加轻量方便快捷
     ],
-    keyword_CN: [
+    keyword-CN: [
         冯如杯, 模板, Typst
     ],
-    abstract_EN: [
+    abstract-EN: [
         This Typst template is made for the main track paper of the 34rd Fengru Cup Competition of Beijing University of Aeronautics and Astronautics (BUAA), which is more powerful compared to Word, and lighter and easier to use compared to the Latex template.
     ],
-    keyword_EN: [
+    keyword-EN: [
         Fengru Cup, Template, Typst
     ],
     bibliography-file: "refs.bib",
-    auto_num_title: true,
+    auto-num-title: true,
 )
 
 = Typst 简介
@@ -53,14 +53,14 @@ Typst 是可用于出版的可编程标记语言, 拥有变量, 函数与包管�
     subtitle: "Subtitle",
     header: "Header",
     author: none,
-    abstract_CN: [中文摘要],
-    keyword_CN: [关键词1, 关键词2],
-    abstract_EN: [English Abstract],
-    keyword_EN: [Keyword1, Keyword2],
+    abstract-CN: [中文摘要],
+    keyword-CN: [关键词1, 关键词2],
+    abstract-EN: [English Abstract],
+    keyword-EN: [Keyword1, Keyword2],
     bibliography-file: "refs.bib",
     bibliography-title: "参考文献",
     bibliography-style: "gb-7714-2015-numeric",
-    auto_num_title: true,
+    auto-num-title: true,
 )
 = First title
 
@@ -75,12 +75,12 @@ Your article
 - `subtitle`: 论文副标题, 可以留空, 无需手动写出破折号
 - `header`: 论文页眉内容
 - `author`: 虽然作者根据冯如杯规则理应留空或者填写 `none`, 但还是加上了
-- `abstract_CN`: 中文摘要, 直接在中括号内填写即可, 内容要求同正文相同, 下面的 `abstract_EN`同理
-- `keyword_CN`: 中文关键词, 直接在中括号内填写即可, 用逗号隔开, 下面的 `abstract_EN`同理
+- `abstract-CN`: 中文摘要, 直接在中括号内填写即可, 内容要求同正文相同, 下面的 `abstract-EN`同理
+- `keyword-CN`: 中文关键词, 直接在中括号内填写即可, 用逗号隔开, 下面的 `abstract-EN`同理
 - `bibliography-file`: 参考文献目录文件是一个 `.bib` 文件, 具体写法可以参照下面的内容以及本储存库根目录的 `refs.bib`
 - `bibliography-title`: 参考文献目录标题
 - `bibliography-style`: 参考文献样式
-- `auto_num_title`: 按照冯如杯的规范对标题进行自动标号, 默认启用, 如果你有需要也可以关闭此功能手动标号
+- `auto-num-title`: 按照冯如杯的规范对标题进行自动标号, 默认启用, 如果你有需要也可以关闭此功能手动标号
 
 === 样式说明
 

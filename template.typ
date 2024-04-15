@@ -66,14 +66,14 @@
     subtitle: none,
     header: none,
     author: "Fontlos",
-    abstract_CN: none,
-    keyword_CN: none,
-    abstract_EN: none,
-    keyword_EN: none,
+    abstract-CN: none,
+    keyword-CN: none,
+    abstract-EN: none,
+    keyword-EN: none,
     bibliography-file: none,
     bibliography-title: "参考文献",
     bibliography-style: "gb-7714-2015-numeric",
-    auto_num_title: true,
+    auto-num-title: true,
     body
 ) = {
     // 设置文档基本内容
@@ -132,23 +132,23 @@
     )
 
     // 摘要, 关键字与目录
-    if abstract_CN != none and keyword_CN != none {
+    if abstract-CN != none and keyword-CN != none {
         align(center, text(16pt, font: "SimHei")[摘要])
         [
-            #abstract_CN
+            #abstract-CN
 
             #text(font: "SimHei", "关键词：")
-            #keyword_CN
+            #keyword-CN
         ]
         pagebreak()
     }
-    if abstract_EN != none and keyword_EN != none {
+    if abstract-EN != none and keyword-EN != none {
         align(center, text(16pt, weight: "bold")[Abstract])
         [
-            #abstract_EN
+            #abstract-EN
 
             *Keywords: *
-            #strong(keyword_EN)
+            #strong(keyword-EN)
         ]
         pagebreak()
     }
@@ -239,7 +239,7 @@
     }
 
     // 是否开启自动标号
-    if auto_num_title != none {
+    if auto-num-title != none {
         set heading(numbering: (..nums) => {
             if nums.pos().len()==1 {
                 numbering("一、", nums.pos().at(0))

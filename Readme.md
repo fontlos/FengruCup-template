@@ -40,14 +40,14 @@ For details of the basic syntax, refer to [**Typst Docs**](https://typst.app/doc
     subtitle: "Subtitle",
     header: "Header",
     author: none,
-    abstract_CN: [中文摘要],
-    keyword_CN: [关键词1, 关键词2],
-    abstract_EN: [English Abstract],
-    keyword_EN: [Keyword1, Keyword2],
+    abstract-CN: [中文摘要],
+    keyword-CN: [关键词1, 关键词2],
+    abstract-EN: [English Abstract],
+    keyword-EN: [Keyword1, Keyword2],
     bibliography-file: "refs.bib",
     bibliography-title: "Reference",
     bibliography-style: "gb-7714-2015-numeric",
-    auto_num_title: true,
+    auto-num-title: true,
 )
 = First title
 
@@ -62,12 +62,12 @@ Your article
 - `subtitle`: subtitle of the paper, can be left blank, no need to manually write out dashes
 - `header`: content of the header of the paper
 - `author`: the author is added even though it should be left blank or `none` according to the Fengru Cup rule.
-- `abstract_CN`: Chinese abstract, just put it in brackets, the content is the same as the main text, the same as the following `abstract_EN`.
-- `keyword_CN`: Chinese keyword, fill in the middle bracket directly, separated by comma, the same as the following `keyword_EN`
+- `abstract-CN`: Chinese abstract, just put it in brackets, the content is the same as the main text, the same as the following `abstract-EN`.
+- `keyword-CN`: Chinese keyword, fill in the middle bracket directly, separated by comma, the same as the following `keyword-EN`
 - `bibliography-file`: the bibliography file is a `.bib` file, see below and `refs.bib` in the root of the repository
 - `bibliography-title`: Bibliography Page title
 - `bibliography-style`: Bibliography style
-- `auto_num_title`: auto numbering title according to Fengru Cup's specification, enabled by default, you can also disable this feature to manually number the titles if you need to.
+- `auto-num-title`: auto numbering title according to Fengru Cup's specification, enabled by default, you can also disable this feature to manually number the titles if you need to.
 
 ### Styling instructions
 
