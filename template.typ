@@ -65,7 +65,7 @@
     title: none,
     subtitle: none,
     header: none,
-    author: "Fontlos",
+    author: "",
     abstract-CN: none,
     keyword-CN: none,
     abstract-EN: none,
@@ -111,7 +111,7 @@
     v(3.5em)
     align(center, image("svg/name.svg", width: 80%))
     v(4em)
-    align(center, text(22pt, title, stroke: 0.06em))
+    align(center, text(21pt, title, font: ("Times New Roman", "STZhongsong"), stroke: 0.04em))
     v(2em)
     if subtitle != none{
         let subtitle = "——" + subtitle
@@ -121,13 +121,14 @@
     // 设置摘要与目录页页码
     set page(
         // 设置页码
-        numbering: "i",
-        number-align: center,
+        footer: align(center ,text(size: 10.5pt, counter(page).display("i"))),
     )
     pagebreak()
     counter(page).update(1)
+    // 设置段间距
+    show par: set block(above: 15.75pt, below: 15.75pt)
     set par(
-        leading: 1em,
+        leading: 15.75pt,
         first-line-indent: 2em,
     )
 
@@ -156,7 +157,7 @@
     // 目录设置
     show outline.entry: it => {
         it
-        v(0.5em, weak: true)
+        v(0.0em, weak: true)
     }
     set par(
         first-line-indent: 0em,
@@ -171,13 +172,12 @@
 
     // 设置正文页页码与页眉
     set page(
-        numbering: "1",
-        number-align: center,
+        footer: align(center ,text(size: 10.5pt, counter(page).display("1"))),
         header-ascent: 14pt,
         header: {
-            set text(size: 9pt, font: "STSong")
+            set text(size: 9pt, font: "SimSun")
             align(center, header)
-            v(-2em)
+            v(-2.6em)
             line(start:(0%,25%),end:(100%,25%),length:100%,stroke: 0.5pt)
         },
     )
@@ -188,12 +188,12 @@
     // 设置段间距
     show par: set block(above: 1.5em, below: 1.5em)
     // 插入空行以辅助首行缩进
-    show heading: it => {
-        v(2em, weak: true)
-        it;
-        v(0em, weak: true)
-        h(0em)
-    }
+    // show heading: it => {
+    //     // v(1em)
+    //     it;
+    //     v(0.5em, weak: true)
+    //     h(0em)
+    // }
     show list: it => {
         it;
         v(0em, weak: true)
@@ -220,22 +220,31 @@
         text()[#h(0em)]
     }
     set par(
-        leading: 1em,
+        leading: 15.75pt,
         first-line-indent: 2em,
     )
 
     // 标题大小
     show heading.where(level:1): it =>{
         set text(size: 16pt, font:("Times New Roman", "SimHei"))
+        v(1em)
         align(center, it)
+        v(0.5em, weak: true)
+        h(0em)
     }
     show heading.where(level:2): it =>{
         set text(size: 14pt, font:("Times New Roman", "SimHei"))
+        v(0.2em)
         it
+        v(0.0em, weak: true)
+        h(0em)
     }
     show heading.where(level:3): it =>{
         set text(size: 12pt, font:("Times New Roman", "SimHei"))
+        v(0.2em)
         it
+        v(0.2em, weak: true)
+        h(0em)
     }
 
     // 是否开启自动标号
@@ -267,6 +276,7 @@
     num: none,
     body
 ) = {
+    set text(stroke: 0.02857em, size: 10.5pt)
     figure(
         image(path, width: width),
         caption: [#bold(body)],

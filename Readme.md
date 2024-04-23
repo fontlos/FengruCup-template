@@ -21,7 +21,7 @@ All styles have been modelled after the Latex template of the main track paper o
 ### Compiler and necessary files
 
 - Download the Compiler for your system from [**Github Release**](https://github.com/typst/typst/releases/) add it to the PATH environment variable
-- Make sure your computer has the following fonts: SimSun (宋体), SimHei (黑体), STXinwei(华文新魏), Times New Roman (If you're not sure you can check by entering the following command: `typst fonts`)
+- Make sure your computer has the following fonts: SimSun (宋体), STZhongsong (华文中宋体), SimHei (黑体), STXinwei(华文新魏), Times New Roman (If you're not sure you can check by entering the following command: `typst fonts`)
 - `git clone` or download this repository
 
 ### Editor

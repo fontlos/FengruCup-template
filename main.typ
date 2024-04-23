@@ -34,7 +34,7 @@ Typst 是可用于出版的可编程标记语言, 拥有变量, 函数与包管�
 === 编译器及必要文件准备
 
 - 从 #link("https://github.com/typst/typst/releases/")[*Github Release*] 下载对应系统打包好的可执行文件并加入环境变量
-- 确保电脑上装有宋体(SimSun), 黑体(SimHei), 华文新魏(STXinwei), Times New Roman 等字体(不确定是否安装可输入 `typst fonts` 命令查看)
+- 确保电脑上装有宋体(SimSun), 华文中宋体(STZhongsong), 黑体(SimHei), 华文新魏(STXinwei), Times New Roman 等字体(不确定是否安装可输入 `typst fonts` 命令查看)
 - `git clone` 或 下载本储存库
 
 === 编辑器配置
