@@ -76,7 +76,9 @@
     auto-num-title: true,
     body
 ) = {
-    // 设置文档基本内容
+    // =========================
+    //     设置文档基本内容
+    // =========================
     set document(author: (author, ), title: title)
     // 设置页边距
     set page(
@@ -87,11 +89,12 @@
             right: 2cm,
         )
     )
-    // 设置正文, 公式与代码块字体
+    // 设置正文, 小4号, 默认新罗马体, 中文回退到宋体
     set text(font: ("Times New Roman" ,"SimSun"), size: 12pt)
+    // 设置数学公式字体
     show math.equation: set text(font: "New Computer Modern Math", weight: 400)
+    // 设置代码块字体
     show raw : set text(font: ("DejaVu Sans Mono", "SimSun"), weight: 400, size: 9pt)
-
     // 代码块背景
     show raw.where(block: false): box.with(
         fill: luma(240),
@@ -105,29 +108,38 @@
         radius: 4pt,
     )
 
-    // 设置封面
-    v(0.3em)
+    // =========================
+    //     设置封面
+    // =========================
+    v(-0.5em)
     align(left, image("svg/logo.svg", width: 20%))
-    v(3.5em)
+    v(3.4em)
     align(center, image("svg/name.svg", width: 80%))
     v(4em)
-    align(center, text(21pt, title, font: ("Times New Roman", "STZhongsong"), stroke: 0.04em))
+    // 论文题目 2 号 华文中宋 加粗
+    align(center, text(22pt, title, font: ("STZhongsong"), stroke: 0.01em))
     v(2em)
+    // 可选副标题 3 号 华文新魏 加粗
     if subtitle != none{
         let subtitle = "——" + subtitle
-        align(right, text(16pt, subtitle, font:("Times New Roman", "STXinwei")))
+        align(right, text(16pt, subtitle, font:("STXinwei")))
     }
 
-    // 设置摘要与目录页页码
+    // =========================
+    //     设置摘要与目录页页码
+    // =========================
     set page(
-        // 设置页码
-        footer: align(center ,text(size: 10.5pt, counter(page).display("i"))),
+        // 设置页码, 5号, 新罗马体
+        footer: context {
+            align(center, text(size: 10.5pt, counter(page).display("i")))
+        },
     )
     pagebreak()
+    // 封面, 题名不编页码, 从摘要开始, 摘要图例部分用小写罗马数字
     counter(page).update(1)
     // 设置段间距
-    show par: set block(above: 15.75pt, below: 15.75pt)
     set par(
+        spacing: 15.75pt,
         leading: 15.75pt,
         first-line-indent: 2em,
     )
@@ -154,11 +166,9 @@
         pagebreak()
     }
 
-    // 目录设置
-    show outline.entry: it => {
-        it
-        v(0.0em, weak: true)
-    }
+    // =========================
+    //     设置目录
+    // =========================
     set par(
         first-line-indent: 0em,
     )
@@ -167,12 +177,16 @@
         title: none,
         depth: 3,
         indent: 2em,
-        fill: box(width: 1fr, repeat[.#h(0.5em)])
     )
 
-    // 设置正文页页码与页眉
+    // =========================
+    //     设置正文页页码与页眉
+    // =========================
     set page(
-        footer: align(center ,text(size: 10.5pt, counter(page).display("1"))),
+        // 从正文绪论开始一直到参考文献 附录, 用阿拉伯数字编页码
+        footer: context {
+            align(center, text(size: 10.5pt, counter(page).display("1")))
+        },
         header-ascent: 14pt,
         header: {
             set text(size: 9pt, font: "SimSun")
@@ -184,16 +198,10 @@
     pagebreak()
     counter(page).update(1)
 
-    // 主体
-    // 设置段间距
-    show par: set block(above: 1.5em, below: 1.5em)
-    // 插入空行以辅助首行缩进
-    // show heading: it => {
-    //     // v(1em)
-    //     it;
-    //     v(0.5em, weak: true)
-    //     h(0em)
-    // }
+    // =========================
+    //     设置正文
+    // =========================
+
     show list: it => {
         it;
         v(0em, weak: true)
@@ -220,27 +228,32 @@
         text()[#h(0em)]
     }
     set par(
-        leading: 15.75pt,
+        // 间距设置过了
         first-line-indent: 2em,
     )
 
-    // 标题大小
+    // =========================
+    //     设置正文标题
+    // =========================
+    // 章标题 3号, 黑体, 居中
     show heading.where(level:1): it =>{
-        set text(size: 16pt, font:("Times New Roman", "SimHei"))
+        set text(size: 16pt, font:("SimHei"))
         v(1em)
         align(center, it)
         v(0.5em, weak: true)
         h(0em)
     }
+    // 节标题 4号, 黑体, 居左
     show heading.where(level:2): it =>{
-        set text(size: 14pt, font:("Times New Roman", "SimHei"))
+        set text(size: 14pt, font:("SimHei"))
         v(0.2em)
         it
         v(0.0em, weak: true)
         h(0em)
     }
+    // 条标题 小4号, 黑体, 居左
     show heading.where(level:3): it =>{
-        set text(size: 12pt, font:("Times New Roman", "SimHei"))
+        set text(size: 12pt, font:("SimHei"))
         v(0.2em)
         it
         v(0.2em, weak: true)
@@ -263,11 +276,23 @@
         body
     }
 
-    // 结尾参考文献
+    // =========================
+    //     设置结尾参考文献
+    // =========================
     if bibliography-file != none {
         pagebreak()
         bibliography(bibliography-file, title: bibliography-title, style: bibliography-style)
     }
+}
+
+// 结论章是没有编号的
+#let conclusion(title: "结论") = {
+    heading(
+        level: 1,
+        numbering: none,
+        outlined: true,
+        title
+    )
 }
 
 #let img(
